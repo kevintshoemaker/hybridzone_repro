@@ -1029,9 +1029,9 @@ testmateselection <- function(sex="F",zone="all"){
   
   table(nulldist_sqdiff[[specvar]])
   
-  svg(sprintf("ApparentMateSelTest_%s_%s.svg",sex,zone),6,3.5)
+  svg(sprintf("ApparentMateSelTest_%s_%s_forinkscape.svg",sex,zone),6,3.5)
   
-  layout(matrix(1:6,ncol=3,byrow=T))
+  layout(matrix(1:6,ncol=3,byrow=F))
   
   par(mai=c(0.7,0.7,0.05,0.1))
   s=Species[2]
@@ -1043,8 +1043,10 @@ testmateselection <- function(sex="F",zone="all"){
       nulldist <- subset(nulldist_sqdiff,Dad.spec==s)
     }
     
-    hist(nulldist$meanmateq,breaks=8,freq=T,xlim=c(0,1),main = "",
-         xlab="",ylab = "Frequency",col=gray(0.6),border=gray(0.6))
+    hist(nulldist$meanmateq,breaks=8,freq=T,xlim=c(0,1),main = "",xaxt="n",yaxt="n",
+         xlab="",ylab = "Frequency",col=gray(0.6),border=gray(0.6),ylim=c(0,15))
+    axis(1,at=c(0,0.5,1),labels=c(0,0.5,1))
+    axis(2,at=c(0,5,10,15),labels=c(0,5,10,15))
     mtext(expression('q'[italic("fuscipes")]), side=1, line=3.2, cex=1.2)
     # polygon(c(0,0.1,0.1,0),c(0,0,50,50),col=speccol[5],border=speccol[5])
     # polygon(c(0.1,0.4,0.4,0.1),c(0,0,50,50),col=speccol[4],border=speccol[4])

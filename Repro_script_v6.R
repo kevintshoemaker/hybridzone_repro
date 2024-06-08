@@ -24,8 +24,8 @@ source("Repro_functions_v6.R")
 ##########  LOAD PACKAGES
 
 library(lubridate)
-library(rgeos)
-library(rgdal)
+# library(rgeos)
+# library(rgdal)
 library(raster)
 library(sp)
 library(edfun)
